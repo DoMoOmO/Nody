@@ -17,10 +17,10 @@ var through = require('through');
 
 var app = express();
 
-var google_analytics_id = process.env.GA_ID || null;
+//var google_analytics_id = process.env.GA_ID || null;
 
 function addGa(html) {
-    if (google_analytics_id) {
+    //if (google_analytics_id) {
         var ga = [
             "<script>"
             "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');""
@@ -30,7 +30,7 @@ function addGa(html) {
             "</script>"
             ].join("\n");
         html = html.replace("</body>", ga + "\n\n</body>");
-    }
+    //}
     return html;
 }
 
